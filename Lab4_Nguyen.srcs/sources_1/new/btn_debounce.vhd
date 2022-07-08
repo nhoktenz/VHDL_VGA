@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Thuong Nguyen
--- Button Debounce component
--- follow lecture 5
+-- Button Debounce component that eliminates bouncing
+-- Assume that the button is pressed for 0.1 seconds or longer
 ----------------------------------------------------------------------------------
 
 
@@ -19,10 +19,12 @@ entity btn_debounce is
 end btn_debounce;
 
 architecture Behavioral of btn_debounce is
-    constant delay : unsigned(23 downto 0) := to_unsigned(10000000, 23 +1); 
+    constant delay : unsigned(23 downto 0) := to_unsigned(10000000, 23 +1);  --delay time is 10 000 000 
     signal counter : unsigned(23 downto 0); 
 begin
-    
+
+-- Counter that increments as long as you press button. 
+-- If counter > 10,000,000, then acknowledge press
 btn_debounce:
 process(clk, reset)
     begin

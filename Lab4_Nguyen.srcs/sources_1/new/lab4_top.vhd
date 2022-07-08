@@ -1,6 +1,8 @@
 ----------------------------------------------------------------------------------
---  
+-- Thuong Nguyen
 -- This lab is to design a VGA controller and implement a checkerboard display with a red square that moves along the board in response to pressing the push-buttons.
+-- the checkerboad is 15 rows by 20 columns (green and blue square)
+-- each square is 32x32
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -12,7 +14,7 @@ Port (
            -- Clock
            CLK100MHZ : in STD_LOGIC;
            -- Switch 0 as active high reset
-           SW: in STD_LOGIC_VECTOR(15 downto 0); 
+           SW: in STD_LOGIC_VECTOR(0 downto 0); 
            
            --Push Buttons
            BTNU : in STD_LOGIC;
@@ -34,6 +36,7 @@ Port (
 end lab4_top;
 
 architecture Behavioral of lab4_top is
+    -- reset signal
     signal reset : std_logic;
     -- 7 segments display
     signal char0: std_logic_vector(31 downto 28);
@@ -78,10 +81,12 @@ architecture Behavioral of lab4_top is
     
 begin
    -- switch 0 is reset
-   reset <= sw(0);            
+   reset <= SW(0);            
      
-              
-     --------------------------------- VGA --------------------------    
+     ------------------------------------------------------------------------------------           
+     ------------------------------------- VGA ------------------------------------------   
+     ------------------------------------------------------------------------------------ 
+     
      -- vga port map -- 
      vga: entity work.vga port map 
         (
@@ -92,42 +97,22 @@ begin
            vgaRed => VGA_R,
            vgaGreen => VGA_G,
            vgaBlue => VGA_B,
-           v_counter => vertical_counter,
-           h_counter => horizontal_counter
+           h_cnt => hcnt,
+           v_cnt => vcnt
+           --v_counter => vertical_counter,
+           --h_counter => horizontal_counter
         );
         
-        -- Make checkerboard
-        -- Alternating the green and blue square
-        -- Check for the bit(5) of vertical_counter and horizontal_counter. 
-        -- if the
-        checkerboard: process (horizontal_counter,vertical_counter)
-        begin
-            if(horizontal_counter(9 downto 5) = hcnt and vertical_counter(9 downto 5) = vcnt )then
-                vgaGreenT <= '0';  
-                vgaBlueT <= '0';
-                vgaRedT <= '1';
-            elsif((horizontal_counter(5) = '1' and vertical_counter(5) = '1')
-                or (horizontal_counter(5) = '0' and vertical_counter(5) = '0') ) then
-                vgaGreenT <= '1';  
-                vgaBlueT <= '0';
-                vgaRedT <= '0';
-            else
-                vgaGreenT <= '0';  
-                vgaBlueT <= '1';
-                vgaRedT <= '0';
-            end if;          
-        end process checkerboard;
+        
     
-    --Write a CSA to assign '0' to signals vgaGreenT and vgaBlueT. 
-    --vgaGreenT <= '0';
-    --vgaBlueT <= '0';
-    
-    VGA_R <= "1111" when vgaRedT = '1' else "0000";
-    VGA_G <= "1111" when vgaGreenT = '1' else "0000";
-    VGA_B <= "1111" when vgaBlueT = '1' else "0000";
+    --Write a CSA to assign '1' to signals vgaRedT, vgaGreenT, vgaBlueT otherwise 0 .  
+    --VGA_R <= "1111" when vgaRedT = '1' else "0000";
+    --VGA_G <= "1111" when vgaGreenT = '1' else "0000";
+    --VGA_B <= "1111" when vgaBlueT = '1' else "0000";
        
-     
-     -------------------- BUTTONS --------------------------
+     -----------------------------------------------------------------------------------      
+     -------------------------------------- BUTTONS ------------------------------------
+     -----------------------------------------------------------------------------------
      
      --------BUTTON UP -------------
      -- button up debounce port map
@@ -138,13 +123,13 @@ begin
         pb0 => BTNU,
         pb0db => btnUp_bd
      );
-     
+     -- process to assign the button up debounce output one clock cycle delayed
      btnU_enable: process(CLK100MHZ, reset)
      begin
         if (reset = '1') then
             btnUp_db_prev <= '0';
         elsif (rising_edge(CLK100MHZ)) then
-            btnUp_db_prev <= btnUp_bd;
+            btnUp_db_prev <= btnUp_bd;      -- previous value of button pushed
         end if;    
      end process btnU_enable;
      
@@ -159,13 +144,13 @@ begin
         pb0 => BTND,
         pb0db => btnDown_bd
      );
-     
+      -- process to assign the button down debounce output one clock cycle delayed
      btnD_enable: process(CLK100MHZ, reset)
      begin
         if (reset = '1') then
             btnDown_db_prev <= '0';
         elsif (rising_edge(CLK100MHZ)) then
-            btnDown_db_prev <= btnDown_bd;
+            btnDown_db_prev <= btnDown_bd; -- previous value of button pushed
         end if;    
      end process btnD_enable;
      
@@ -180,13 +165,13 @@ begin
         pb0 => BTNL,
         pb0db => btnLeft_bd
      );
-     
+      -- process to assign the button left debounce output one clock cycle delayed
      btnL_enable: process(CLK100MHZ, reset)
      begin
         if (reset = '1') then
             btnLeft_db_prev <= '0';
         elsif (rising_edge(CLK100MHZ)) then
-            btnLeft_db_prev <= btnLeft_bd;
+            btnLeft_db_prev <= btnLeft_bd; -- previous value of button pushed
         end if;    
      end process btnL_enable;
      
@@ -201,22 +186,24 @@ begin
         pb0 => BTNR,
         pb0db => btnRight_bd
      );
-     
+      -- process to assign the button right debounce output one clock cycle delayed
      btnR_enable: process(CLK100MHZ, reset)
      begin
         if (reset = '1') then
             btnRight_db_prev <= '0';
         elsif (rising_edge(CLK100MHZ)) then
-            btnRight_db_prev <= btnRight_bd;
+            btnRight_db_prev <= btnRight_bd; -- previous value of button pushed
         end if;    
      end process btnR_enable;
      
      btnRight_press_event <= '1' when btnRight_bd = '1' and btnRight_db_prev = '0' else '0';
        
     -- Design a process for a 8-bits counter with an enable that counts everytime the enable goes high
+    -- When buttons is press, it set the location for the red square
+    -- verical count and horizontal count is set to 0 when reset switch is switch on
     btn_counter: process(CLK100MHZ, reset)
     begin
-        if(reset = '1') then
+        if(reset = '1') then                    -- verical count and horizontal count is set to 0 when reset switch is switch on
             hcnt <= (others => '0');
             vcnt <= (others => '0');
          elsif(rising_edge(CLK100MHZ)) then
@@ -225,7 +212,7 @@ begin
              else
                 if(btnUp_press_event = '1') then 
                     if(vcnt = "00000000") then
-                        vcnt <= VMax - 1;
+                        vcnt <= VMax -1;
                     else
                         vcnt <= vcnt - 1;
                     end if;
@@ -255,7 +242,9 @@ begin
         end if;
     end process btn_counter;
 
-    ---------------- 7 SEGMENTS DISPLAY ----------------
+    ------------------------------------------------------------------------------------
+    ------------------------------------- 7 SEGMENTS DISPLAY --------------------------
+    ------------------------------------------------------------------------------------
     
     -- 7 segments controller port map     
    seg7Controller: entity seg7_controller port map 

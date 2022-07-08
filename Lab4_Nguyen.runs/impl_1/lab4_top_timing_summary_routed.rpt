@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Tue Jul  5 23:11:15 2022
+| Date         : Fri Jul  8 01:50:55 2022
 | Host         : Thuong-Nguyen-PC running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file lab4_top_timing_summary_routed.rpt -pb lab4_top_timing_summary_routed.pb -rpx lab4_top_timing_summary_routed.rpx -warn_on_violation
 | Design       : lab4_top
@@ -217,107 +217,235 @@ Min Delay           551 Endpoints
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 hcnt_reg[6]/C
+  Source:                 vcnt_reg[7]/C
                             (rising edge-triggered cell FDCE)
   Destination:            VGA_B[0]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        13.412ns  (logic 4.833ns (36.034%)  route 8.579ns (63.966%))
+  Data Path Delay:        13.645ns  (logic 4.833ns (35.418%)  route 8.812ns (64.582%))
   Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I0_O)        0.150     4.136 r  vga/VGA_B_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           5.525     9.661    VGA_B_OBUF[0]
-    B7                   OBUF (Prop_obuf_I_O)         3.751    13.412 r  VGA_B_OBUF[0]_inst/O
-                         net (fo=0)                   0.000    13.412    VGA_B[0]
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I0_O)        0.152     3.905 r  vga/VGA_B_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.992     9.896    VGA_B_OBUF[0]
+    B7                   OBUF (Prop_obuf_I_O)         3.749    13.645 r  VGA_B_OBUF[0]_inst/O
+                         net (fo=0)                   0.000    13.645    VGA_B[0]
     B7                                                                r  VGA_B[0] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 hcnt_reg[6]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            VGA_G[0]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        13.156ns  (logic 4.594ns (34.921%)  route 8.562ns (65.079%))
-  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I2_O)        0.124     4.110 r  vga/VGA_G_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           5.507     9.618    VGA_G_OBUF[0]
-    C6                   OBUF (Prop_obuf_I_O)         3.538    13.156 r  VGA_G_OBUF[0]_inst/O
-                         net (fo=0)                   0.000    13.156    VGA_G[0]
-    C6                                                                r  VGA_G[0] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 hcnt_reg[6]/C
+  Source:                 vcnt_reg[7]/C
                             (rising edge-triggered cell FDCE)
   Destination:            VGA_B[3]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        13.134ns  (logic 4.838ns (36.833%)  route 8.296ns (63.167%))
+  Data Path Delay:        13.367ns  (logic 4.838ns (36.191%)  route 8.529ns (63.809%))
   Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I0_O)        0.150     4.136 r  vga/VGA_B_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           5.242     9.378    VGA_B_OBUF[0]
-    D8                   OBUF (Prop_obuf_I_O)         3.756    13.134 r  VGA_B_OBUF[3]_inst/O
-                         net (fo=0)                   0.000    13.134    VGA_B[3]
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I0_O)        0.152     3.905 r  vga/VGA_B_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.709     9.613    VGA_B_OBUF[0]
+    D8                   OBUF (Prop_obuf_I_O)         3.754    13.367 r  VGA_B_OBUF[3]_inst/O
+                         net (fo=0)                   0.000    13.367    VGA_B[3]
     D8                                                                r  VGA_B[3] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 hcnt_reg[6]/C
+  Source:                 vcnt_reg[7]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            VGA_G[0]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        13.333ns  (logic 4.594ns (34.457%)  route 8.739ns (65.543%))
+  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I2_O)        0.124     3.877 r  vga/VGA_G_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.918     9.795    VGA_G_OBUF[0]
+    C6                   OBUF (Prop_obuf_I_O)         3.538    13.333 r  VGA_G_OBUF[0]_inst/O
+                         net (fo=0)                   0.000    13.333    VGA_G[0]
+    C6                                                                r  VGA_G[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[7]/C
                             (rising edge-triggered cell FDCE)
   Destination:            VGA_B[1]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        12.982ns  (logic 4.837ns (37.260%)  route 8.145ns (62.740%))
+  Data Path Delay:        13.215ns  (logic 4.837ns (36.603%)  route 8.378ns (63.397%))
   Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I0_O)        0.150     4.136 r  vga/VGA_B_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           5.091     9.227    VGA_B_OBUF[0]
-    C7                   OBUF (Prop_obuf_I_O)         3.755    12.982 r  VGA_B_OBUF[1]_inst/O
-                         net (fo=0)                   0.000    12.982    VGA_B[1]
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I0_O)        0.152     3.905 r  vga/VGA_B_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.558     9.462    VGA_B_OBUF[0]
+    C7                   OBUF (Prop_obuf_I_O)         3.753    13.215 r  VGA_B_OBUF[1]_inst/O
+                         net (fo=0)                   0.000    13.215    VGA_B[1]
     C7                                                                r  VGA_B[1] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[7]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            VGA_G[2]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        13.058ns  (logic 4.602ns (35.245%)  route 8.456ns (64.755%))
+  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I2_O)        0.124     3.877 r  vga/VGA_G_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.635     9.512    VGA_G_OBUF[0]
+    B6                   OBUF (Prop_obuf_I_O)         3.546    13.058 r  VGA_G_OBUF[2]_inst/O
+                         net (fo=0)                   0.000    13.058    VGA_G[2]
+    B6                                                                r  VGA_G[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[7]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            VGA_G[1]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        12.905ns  (logic 4.601ns (35.650%)  route 8.304ns (64.350%))
+  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I2_O)        0.124     3.877 r  vga/VGA_G_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.484     9.360    VGA_G_OBUF[0]
+    A5                   OBUF (Prop_obuf_I_O)         3.545    12.905 r  VGA_G_OBUF[1]_inst/O
+                         net (fo=0)                   0.000    12.905    VGA_G[1]
+    A5                                                                r  VGA_G[1] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[7]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            VGA_B[2]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        12.894ns  (logic 4.809ns (37.299%)  route 8.085ns (62.701%))
+  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I0_O)        0.152     3.905 r  vga/VGA_B_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.264     9.169    VGA_B_OBUF[0]
+    D7                   OBUF (Prop_obuf_I_O)         3.725    12.894 r  VGA_B_OBUF[2]_inst/O
+                         net (fo=0)                   0.000    12.894    VGA_B[2]
+    D7                                                                r  VGA_B[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[7]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            VGA_G[3]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        12.755ns  (logic 4.602ns (36.082%)  route 8.153ns (63.918%))
+  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 f  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 f  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           1.204     3.753    vga/VGA_R_OBUF[0]
+    SLICE_X7Y96          LUT3 (Prop_lut3_I2_O)        0.124     3.877 r  vga/VGA_G_OBUF[3]_inst_i_1/O
+                         net (fo=4, routed)           5.332     9.209    VGA_G_OBUF[0]
+    A6                   OBUF (Prop_obuf_I_O)         3.546    12.755 r  VGA_G_OBUF[3]_inst/O
+                         net (fo=0)                   0.000    12.755    VGA_G[3]
+    A6                                                                r  VGA_G[3] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[7]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            VGA_R[2]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        11.905ns  (logic 4.467ns (37.523%)  route 7.438ns (62.477%))
+  Logic Levels:           4  (FDCE=1 LUT2=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[7]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 f  vcnt_reg[7]/Q
+                         net (fo=6, routed)           0.808     1.264    data1[27]
+    SLICE_X1Y94          LUT2 (Prop_lut2_I0_O)        0.150     1.414 r  VGA_R_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           0.808     2.222    vga/VGA_R[0]
+    SLICE_X3Y93          LUT6 (Prop_lut6_I2_O)        0.326     2.548 r  vga/VGA_R_OBUF[3]_inst_i_1/O
+                         net (fo=6, routed)           5.822     8.370    VGA_R_OBUF[0]
+    C5                   OBUF (Prop_obuf_I_O)         3.535    11.905 r  VGA_R_OBUF[2]_inst/O
+                         net (fo=0)                   0.000    11.905    VGA_R[2]
+    C5                                                                r  VGA_R[2] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -327,7 +455,7 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        12.980ns  (logic 5.347ns (41.195%)  route 7.633ns (58.805%))
+  Data Path Delay:        11.727ns  (logic 5.355ns (45.666%)  route 6.372ns (54.334%))
   Logic Levels:           3  (IBUF=1 LUT4=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -335,140 +463,12 @@ Slack:                    inf
     J15                                               0.000     0.000 f  SW[0] (IN)
                          net (fo=0)                   0.000     0.000    SW[0]
     J15                  IBUF (Prop_ibuf_I_O)         1.478     1.478 f  SW_IBUF[0]_inst/O
-                         net (fo=212, routed)         3.004     4.481    seg7Controller/SW_IBUF[0]
-    SLICE_X1Y89          LUT4 (Prop_lut4_I3_O)        0.150     4.631 r  seg7Controller/AN_OBUF[6]_inst_i_1/O
-                         net (fo=1, routed)           4.629     9.260    AN_OBUF[6]
-    K2                   OBUF (Prop_obuf_I_O)         3.720    12.980 r  AN_OBUF[6]_inst/O
-                         net (fo=0)                   0.000    12.980    AN[6]
+                         net (fo=212, routed)         2.549     4.026    seg7Controller/SW_IBUF[0]
+    SLICE_X0Y93          LUT4 (Prop_lut4_I3_O)        0.152     4.178 r  seg7Controller/AN_OBUF[6]_inst_i_1/O
+                         net (fo=1, routed)           3.823     8.001    AN_OBUF[6]
+    K2                   OBUF (Prop_obuf_I_O)         3.726    11.727 r  AN_OBUF[6]_inst/O
+                         net (fo=0)                   0.000    11.727    AN[6]
     K2                                                                r  AN[6] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 hcnt_reg[6]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            VGA_G[2]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        12.881ns  (logic 4.602ns (35.730%)  route 8.279ns (64.270%))
-  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I2_O)        0.124     4.110 r  vga/VGA_G_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           5.224     9.335    VGA_G_OBUF[0]
-    B6                   OBUF (Prop_obuf_I_O)         3.546    12.881 r  VGA_G_OBUF[2]_inst/O
-                         net (fo=0)                   0.000    12.881    VGA_G[2]
-    B6                                                                r  VGA_G[2] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 hcnt_reg[6]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            VGA_G[3]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        12.864ns  (logic 4.602ns (35.778%)  route 8.261ns (64.222%))
-  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I2_O)        0.124     4.110 r  vga/VGA_G_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           5.207     9.317    VGA_G_OBUF[0]
-    A6                   OBUF (Prop_obuf_I_O)         3.546    12.864 r  VGA_G_OBUF[3]_inst/O
-                         net (fo=0)                   0.000    12.864    VGA_G[3]
-    A6                                                                r  VGA_G[3] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 hcnt_reg[6]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            VGA_B[2]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        12.752ns  (logic 4.809ns (37.714%)  route 7.943ns (62.286%))
-  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I0_O)        0.150     4.136 r  vga/VGA_B_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           4.888     9.025    VGA_B_OBUF[0]
-    D7                   OBUF (Prop_obuf_I_O)         3.727    12.752 r  VGA_B_OBUF[2]_inst/O
-                         net (fo=0)                   0.000    12.752    VGA_B[2]
-    D7                                                                r  VGA_B[2] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 hcnt_reg[6]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            VGA_G[1]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        12.728ns  (logic 4.601ns (36.146%)  route 8.127ns (63.854%))
-  Logic Levels:           5  (FDCE=1 LUT2=1 LUT3=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 r  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 r  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 f  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           1.264     3.986    vga/VGA_R_OBUF[0]
-    SLICE_X8Y101         LUT3 (Prop_lut3_I2_O)        0.124     4.110 r  vga/VGA_G_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           5.073     9.183    VGA_G_OBUF[0]
-    A5                   OBUF (Prop_obuf_I_O)         3.545    12.728 r  VGA_G_OBUF[1]_inst/O
-                         net (fo=0)                   0.000    12.728    VGA_G[1]
-    A5                                                                r  VGA_G[1] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 hcnt_reg[6]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            VGA_R[2]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        11.919ns  (logic 4.467ns (37.478%)  route 7.452ns (62.522%))
-  Logic Levels:           4  (FDCE=1 LUT2=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y94          FDCE                         0.000     0.000 r  hcnt_reg[6]/C
-    SLICE_X4Y94          FDCE (Prop_fdce_C_Q)         0.456     0.456 f  hcnt_reg[6]/Q
-                         net (fo=7, routed)           0.848     1.304    data3[18]
-    SLICE_X4Y95          LUT2 (Prop_lut2_I1_O)        0.150     1.454 f  VGA_R_OBUF[3]_inst_i_7/O
-                         net (fo=1, routed)           0.942     2.396    vga/VGA_R[0]_0
-    SLICE_X4Y97          LUT6 (Prop_lut6_I5_O)        0.326     2.722 r  vga/VGA_R_OBUF[3]_inst_i_1/O
-                         net (fo=6, routed)           5.662     8.384    VGA_R_OBUF[0]
-    C5                   OBUF (Prop_obuf_I_O)         3.535    11.919 r  VGA_R_OBUF[2]_inst/O
-                         net (fo=0)                   0.000    11.919    VGA_R[2]
-    C5                                                                r  VGA_R[2] (OUT)
   -------------------------------------------------------------------    -------------------
 
 
@@ -478,58 +478,20 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 btnUp_db_prev_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            vcnt_reg[4]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.265ns  (logic 0.186ns (70.098%)  route 0.079ns (29.902%))
-  Logic Levels:           2  (FDCE=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y96          FDCE                         0.000     0.000 r  btnUp_db_prev_reg/C
-    SLICE_X3Y96          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  btnUp_db_prev_reg/Q
-                         net (fo=6, routed)           0.079     0.220    btnUpDebounce/btnUp_db_prev
-    SLICE_X2Y96          LUT6 (Prop_lut6_I3_O)        0.045     0.265 r  btnUpDebounce/vcnt[4]_i_1/O
-                         net (fo=1, routed)           0.000     0.265    btnUpDebounce_n_4
-    SLICE_X2Y96          FDCE                                         r  vcnt_reg[4]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 btnLeftDebounce/pb0db_reg/C
+  Source:                 btnUpDebounce/pb0db_reg/C
                             (rising edge-triggered cell FDRE)
-  Destination:            btnLeft_db_prev_reg/D
+  Destination:            btnUp_db_prev_reg/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.287ns  (logic 0.164ns (57.234%)  route 0.123ns (42.766%))
+  Data Path Delay:        0.306ns  (logic 0.141ns (46.037%)  route 0.165ns (53.963%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y93          FDRE                         0.000     0.000 r  btnLeftDebounce/pb0db_reg/C
-    SLICE_X6Y93          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  btnLeftDebounce/pb0db_reg/Q
-                         net (fo=8, routed)           0.123     0.287    btnLeft_bd
-    SLICE_X5Y94          FDCE                                         r  btnLeft_db_prev_reg/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 vcnt_reg[0]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            vcnt_reg[2]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.295ns  (logic 0.186ns (63.155%)  route 0.109ns (36.845%))
-  Logic Levels:           2  (FDCE=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y97          FDCE                         0.000     0.000 r  vcnt_reg[0]/C
-    SLICE_X3Y97          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  vcnt_reg[0]/Q
-                         net (fo=10, routed)          0.109     0.250    btnUpDebounce/Q[0]
-    SLICE_X2Y97          LUT6 (Prop_lut6_I2_O)        0.045     0.295 r  btnUpDebounce/vcnt[2]_i_1/O
-                         net (fo=1, routed)           0.000     0.295    btnUpDebounce_n_6
-    SLICE_X2Y97          FDCE                                         r  vcnt_reg[2]/D
+    SLICE_X3Y96          FDRE                         0.000     0.000 r  btnUpDebounce/pb0db_reg/C
+    SLICE_X3Y96          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  btnUpDebounce/pb0db_reg/Q
+                         net (fo=8, routed)           0.165     0.306    btnUp_bd
+    SLICE_X1Y96          FDCE                                         r  btnUp_db_prev_reg/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -538,17 +500,17 @@ Slack:                    inf
   Destination:            hcnt_reg[6]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.306ns  (logic 0.186ns (60.763%)  route 0.120ns (39.237%))
+  Data Path Delay:        0.317ns  (logic 0.186ns (58.625%)  route 0.131ns (41.375%))
   Logic Levels:           2  (FDCE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X5Y94          FDCE                         0.000     0.000 r  btnLeft_db_prev_reg/C
-    SLICE_X5Y94          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  btnLeft_db_prev_reg/Q
-                         net (fo=6, routed)           0.120     0.261    btnLeftDebounce/btnLeft_db_prev
-    SLICE_X4Y94          LUT6 (Prop_lut6_I3_O)        0.045     0.306 r  btnLeftDebounce/hcnt[6]_i_1/O
-                         net (fo=1, routed)           0.000     0.306    btnLeftDebounce_n_2
-    SLICE_X4Y94          FDCE                                         r  hcnt_reg[6]/D
+    SLICE_X5Y91          FDCE                         0.000     0.000 r  btnLeft_db_prev_reg/C
+    SLICE_X5Y91          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  btnLeft_db_prev_reg/Q
+                         net (fo=6, routed)           0.131     0.272    btnLeftDebounce/btnLeft_db_prev
+    SLICE_X4Y91          LUT6 (Prop_lut6_I3_O)        0.045     0.317 r  btnLeftDebounce/hcnt[6]_i_1/O
+                         net (fo=1, routed)           0.000     0.317    btnLeftDebounce_n_2
+    SLICE_X4Y91          FDCE                                         r  hcnt_reg[6]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -557,53 +519,17 @@ Slack:                    inf
   Destination:            hcnt_reg[7]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.307ns  (logic 0.186ns (60.565%)  route 0.121ns (39.435%))
+  Data Path Delay:        0.318ns  (logic 0.186ns (58.440%)  route 0.132ns (41.560%))
   Logic Levels:           2  (FDCE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X5Y94          FDCE                         0.000     0.000 r  btnLeft_db_prev_reg/C
-    SLICE_X5Y94          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  btnLeft_db_prev_reg/Q
-                         net (fo=6, routed)           0.121     0.262    btnLeftDebounce/btnLeft_db_prev
-    SLICE_X4Y94          LUT6 (Prop_lut6_I2_O)        0.045     0.307 r  btnLeftDebounce/hcnt[7]_i_2/O
-                         net (fo=1, routed)           0.000     0.307    btnLeftDebounce_n_1
-    SLICE_X4Y94          FDCE                                         r  hcnt_reg[7]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 btnRightDebounce/pb0db_reg/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            btnRight_db_prev_reg/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.307ns  (logic 0.141ns (45.892%)  route 0.166ns (54.108%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X5Y93          FDRE                         0.000     0.000 r  btnRightDebounce/pb0db_reg/C
-    SLICE_X5Y93          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  btnRightDebounce/pb0db_reg/Q
-                         net (fo=3, routed)           0.166     0.307    btnRight_bd
-    SLICE_X7Y95          FDCE                                         r  btnRight_db_prev_reg/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 btnDownDebounce/counter_reg[23]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            btnDownDebounce/pb0db_reg/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.310ns  (logic 0.186ns (59.973%)  route 0.124ns (40.027%))
-  Logic Levels:           2  (FDCE=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y93          FDCE                         0.000     0.000 r  btnDownDebounce/counter_reg[23]/C
-    SLICE_X0Y93          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  btnDownDebounce/counter_reg[23]/Q
-                         net (fo=3, routed)           0.124     0.265    btnDownDebounce/counter_reg[23]
-    SLICE_X2Y93          LUT6 (Prop_lut6_I1_O)        0.045     0.310 r  btnDownDebounce/pb0db_i_1__0/O
-                         net (fo=1, routed)           0.000     0.310    btnDownDebounce/pb0db_i_1__0_n_0
-    SLICE_X2Y93          FDRE                                         r  btnDownDebounce/pb0db_reg/D
+    SLICE_X5Y91          FDCE                         0.000     0.000 r  btnLeft_db_prev_reg/C
+    SLICE_X5Y91          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  btnLeft_db_prev_reg/Q
+                         net (fo=6, routed)           0.132     0.273    btnLeftDebounce/btnLeft_db_prev
+    SLICE_X4Y91          LUT6 (Prop_lut6_I2_O)        0.045     0.318 r  btnLeftDebounce/hcnt[7]_i_2/O
+                         net (fo=1, routed)           0.000     0.318    btnLeftDebounce_n_1
+    SLICE_X4Y91          FDCE                                         r  hcnt_reg[7]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -612,56 +538,129 @@ Slack:                    inf
   Destination:            seg7Controller/cntr3bit_reg[2]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.329ns  (logic 0.227ns (68.992%)  route 0.102ns (31.008%))
+  Data Path Delay:        0.324ns  (logic 0.227ns (69.967%)  route 0.097ns (30.033%))
   Logic Levels:           2  (FDCE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y96          FDCE                         0.000     0.000 r  seg7Controller/cntr3bit_reg[1]/C
-    SLICE_X3Y96          FDCE (Prop_fdce_C_Q)         0.128     0.128 r  seg7Controller/cntr3bit_reg[1]/Q
-                         net (fo=14, routed)          0.102     0.230    seg7Controller/sel0[1]
-    SLICE_X3Y96          LUT6 (Prop_lut6_I0_O)        0.099     0.329 r  seg7Controller/cntr3bit[2]_i_1/O
-                         net (fo=1, routed)           0.000     0.329    seg7Controller/cntr3bit[2]_i_1_n_0
-    SLICE_X3Y96          FDCE                                         r  seg7Controller/cntr3bit_reg[2]/D
+    SLICE_X1Y93          FDCE                         0.000     0.000 r  seg7Controller/cntr3bit_reg[1]/C
+    SLICE_X1Y93          FDCE (Prop_fdce_C_Q)         0.128     0.128 r  seg7Controller/cntr3bit_reg[1]/Q
+                         net (fo=14, routed)          0.097     0.225    seg7Controller/sel0[1]
+    SLICE_X1Y93          LUT6 (Prop_lut6_I0_O)        0.099     0.324 r  seg7Controller/cntr3bit[2]_i_1/O
+                         net (fo=1, routed)           0.000     0.324    seg7Controller/cntr3bit[2]_i_1_n_0
+    SLICE_X1Y93          FDCE                                         r  seg7Controller/cntr3bit_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 vcnt_reg[1]/C
+  Source:                 vcnt_reg[0]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            vcnt_reg[0]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.331ns  (logic 0.186ns (56.112%)  route 0.145ns (43.888%))
+  Logic Levels:           2  (FDCE=1 LUT4=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y95          FDCE                         0.000     0.000 r  vcnt_reg[0]/C
+    SLICE_X1Y95          FDCE (Prop_fdce_C_Q)         0.141     0.141 f  vcnt_reg[0]/Q
+                         net (fo=10, routed)          0.145     0.286    btnUpDebounce/Q[0]
+    SLICE_X1Y95          LUT4 (Prop_lut4_I3_O)        0.045     0.331 r  btnUpDebounce/vcnt[0]_i_1/O
+                         net (fo=1, routed)           0.000     0.331    btnUpDebounce_n_8
+    SLICE_X1Y95          FDCE                                         r  vcnt_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[6]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            vcnt_reg[6]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.331ns  (logic 0.186ns (56.112%)  route 0.145ns (43.888%))
+  Logic Levels:           2  (FDCE=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y94          FDCE                         0.000     0.000 r  vcnt_reg[6]/C
+    SLICE_X3Y94          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  vcnt_reg[6]/Q
+                         net (fo=7, routed)           0.145     0.286    btnUpDebounce/Q[6]
+    SLICE_X3Y94          LUT6 (Prop_lut6_I1_O)        0.045     0.331 r  btnUpDebounce/vcnt[6]_i_1/O
+                         net (fo=1, routed)           0.000     0.331    btnUpDebounce_n_2
+    SLICE_X3Y94          FDCE                                         r  vcnt_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vcnt_reg[0]/C
                             (rising edge-triggered cell FDCE)
   Destination:            vcnt_reg[3]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.336ns  (logic 0.209ns (62.127%)  route 0.127ns (37.873%))
+  Data Path Delay:        0.332ns  (logic 0.186ns (55.944%)  route 0.146ns (44.056%))
   Logic Levels:           2  (FDCE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y97          FDCE                         0.000     0.000 r  vcnt_reg[1]/C
-    SLICE_X2Y97          FDCE (Prop_fdce_C_Q)         0.164     0.164 r  vcnt_reg[1]/Q
-                         net (fo=9, routed)           0.127     0.291    btnUpDebounce/Q[1]
-    SLICE_X3Y97          LUT6 (Prop_lut6_I1_O)        0.045     0.336 r  btnUpDebounce/vcnt[3]_i_1/O
-                         net (fo=1, routed)           0.000     0.336    btnUpDebounce_n_5
-    SLICE_X3Y97          FDCE                                         r  vcnt_reg[3]/D
+    SLICE_X1Y95          FDCE                         0.000     0.000 r  vcnt_reg[0]/C
+    SLICE_X1Y95          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  vcnt_reg[0]/Q
+                         net (fo=10, routed)          0.146     0.287    btnUpDebounce/Q[0]
+    SLICE_X1Y95          LUT6 (Prop_lut6_I2_O)        0.045     0.332 r  btnUpDebounce/vcnt[3]_i_1/O
+                         net (fo=1, routed)           0.000     0.332    btnUpDebounce_n_5
+    SLICE_X1Y95          FDCE                                         r  vcnt_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 vga/pulseGenerator/pulseCnt_reg[0]/C
+  Source:                 vga/vertical_counter_reg[0]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            vga/pulseGenerator/pulseCnt_reg[1]/D
+  Destination:            vga/vertical_counter_reg[5]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.344ns  (logic 0.265ns (77.004%)  route 0.079ns (22.996%))
-  Logic Levels:           2  (CARRY4=1 FDCE=1)
+  Data Path Delay:        0.342ns  (logic 0.186ns (54.355%)  route 0.156ns (45.645%))
+  Logic Levels:           2  (FDCE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y93          FDCE                         0.000     0.000 r  vga/pulseGenerator/pulseCnt_reg[0]/C
-    SLICE_X7Y93          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  vga/pulseGenerator/pulseCnt_reg[0]/Q
-                         net (fo=3, routed)           0.079     0.220    vga/pulseGenerator/pulseCnt_reg[0]
-    SLICE_X7Y93          CARRY4 (Prop_carry4_DI[0]_O[1])
-                                                      0.124     0.344 r  vga/pulseGenerator/pulseCnt_reg[0]_i_1/O[1]
-                         net (fo=1, routed)           0.000     0.344    vga/pulseGenerator/pulseCnt_reg[0]_i_1_n_6
-    SLICE_X7Y93          FDCE                                         r  vga/pulseGenerator/pulseCnt_reg[1]/D
+    SLICE_X4Y95          FDCE                         0.000     0.000 r  vga/vertical_counter_reg[0]/C
+    SLICE_X4Y95          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  vga/vertical_counter_reg[0]/Q
+                         net (fo=8, routed)           0.156     0.297    vga/vertical_counter_reg_n_0_[0]
+    SLICE_X4Y94          LUT6 (Prop_lut6_I3_O)        0.045     0.342 r  vga/vertical_counter[5]_i_1/O
+                         net (fo=1, routed)           0.000     0.342    vga/vertical_counter[5]
+    SLICE_X4Y94          FDCE                                         r  vga/vertical_counter_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 vga/horizontal_counter_reg[7]/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            vga/horizontal_counter_reg[8]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.344ns  (logic 0.186ns (54.097%)  route 0.158ns (45.903%))
+  Logic Levels:           2  (FDCE=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y92          FDCE                         0.000     0.000 r  vga/horizontal_counter_reg[7]/C
+    SLICE_X5Y92          FDCE (Prop_fdce_C_Q)         0.141     0.141 r  vga/horizontal_counter_reg[7]/Q
+                         net (fo=7, routed)           0.158     0.299    vga/p_0_in0_in[2]
+    SLICE_X5Y92          LUT6 (Prop_lut6_I2_O)        0.045     0.344 r  vga/horizontal_counter[8]_i_1/O
+                         net (fo=1, routed)           0.000     0.344    vga/horizontal_counter[8]
+    SLICE_X5Y92          FDCE                                         r  vga/horizontal_counter_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 btnDownDebounce/pb0db_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            btnDown_db_prev_reg/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.351ns  (logic 0.141ns (40.189%)  route 0.210ns (59.811%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y90          FDRE                         0.000     0.000 r  btnDownDebounce/pb0db_reg/C
+    SLICE_X1Y90          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  btnDownDebounce/pb0db_reg/Q
+                         net (fo=3, routed)           0.210     0.351    btnDown_bd
+    SLICE_X5Y95          FDCE                                         r  btnDown_db_prev_reg/D
   -------------------------------------------------------------------    -------------------
 
 

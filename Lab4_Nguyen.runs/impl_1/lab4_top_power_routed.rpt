@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date             : Tue Jul  5 23:11:15 2022
+| Date             : Fri Jul  8 01:50:55 2022
 | Host             : Thuong-Nguyen-PC running 64-bit major release  (build 9200)
 | Command          : report_power -file lab4_top_power_routed.rpt -pb lab4_top_power_summary_routed.pb -rpx lab4_top_power_routed.rpx
 | Design           : lab4_top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.377        |
+| Total On-Chip Power (W)  | 3.399        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.266        |
-| Device Static (W)        | 0.111        |
+| Dynamic (W)              | 3.288        |
+| Device Static (W)        | 0.112        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 69.6         |
-| Junction Temperature (C) | 40.4         |
+| Max Ambient (C)          | 69.5         |
+| Junction Temperature (C) | 40.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.502 |      504 |       --- |             --- |
-|   LUT as Logic |     0.399 |      229 |     63400 |            0.36 |
+| Slice Logic    |     0.510 |      506 |       --- |             --- |
+|   LUT as Logic |     0.406 |      228 |     63400 |            0.36 |
 |   CARRY4       |     0.051 |       38 |     15850 |            0.24 |
 |   Register     |     0.047 |      197 |    126800 |            0.16 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |       14 |       --- |             --- |
-| Signals        |     0.407 |      346 |       --- |             --- |
+| Signals        |     0.422 |      344 |       --- |             --- |
 | I/O            |     2.357 |       36 |       210 |           17.14 |
-| Static Power   |     0.111 |          |           |                 |
-| Total          |     3.377 |          |           |                 |
+| Static Power   |     0.112 |          |           |                 |
+| Total          |     3.399 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +71,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.956 |       0.929 |      0.027 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.978 |       0.951 |      0.027 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.105 |       0.086 |      0.019 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.665 |       0.661 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -138,15 +138,15 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| lab4_top           |     3.266 |
-|   btnDownDebounce  |     0.114 |
-|   btnLeftDebounce  |     0.123 |
-|   btnRightDebounce |     0.117 |
-|   btnUpDebounce    |     0.130 |
-|   seg7Controller   |     0.170 |
-|     pulseGenerator |     0.121 |
-|   vga              |     0.111 |
-|     pulseGenerator |     0.102 |
+| lab4_top           |     3.288 |
+|   btnDownDebounce  |     0.118 |
+|   btnLeftDebounce  |     0.125 |
+|   btnRightDebounce |     0.116 |
+|   btnUpDebounce    |     0.129 |
+|   seg7Controller   |     0.172 |
+|     pulseGenerator |     0.128 |
+|   vga              |     0.126 |
+|     pulseGenerator |     0.119 |
 +--------------------+-----------+
 
 
