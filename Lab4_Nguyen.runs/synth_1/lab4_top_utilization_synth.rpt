@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Fri Jul  8 01:49:36 2022
+| Date         : Sat Jul  9 11:58:26 2022
 | Host         : Thuong-Nguyen-PC running 64-bit major release  (build 9200)
 | Command      : report_utilization -file lab4_top_utilization_synth.rpt -pb lab4_top_utilization_synth.pb
 | Design       : lab4_top

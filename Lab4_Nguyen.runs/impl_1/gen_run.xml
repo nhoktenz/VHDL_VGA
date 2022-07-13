@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1657259321">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1657382193">
   <File Type="ROUTE-PWR" Name="lab4_top_power_routed.rpt"/>
   <File Type="PA-TCL" Name="lab4_top.tcl"/>
   <File Type="BITSTR-MMI" Name="lab4_top.mmi"/>

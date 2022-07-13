@@ -48,9 +48,7 @@ architecture Behavioral of lab4_top is
     signal char6: std_logic_vector(7 downto 4);
     signal char7: std_logic_vector(3 downto 0);
     
-    --VGA signals       
-    signal horizontal_counter: unsigned (9 downto 0);
-    signal vertical_counter: unsigned (9 downto 0);       
+    --VGA signals             
     signal vgaRedT: std_logic;
     signal vgaGreenT: std_logic;
     signal vgaBlueT: std_logic;
@@ -97,18 +95,10 @@ begin
            vgaRed => VGA_R,
            vgaGreen => VGA_G,
            vgaBlue => VGA_B,
-           h_cnt => hcnt,
-           v_cnt => vcnt
-           --v_counter => vertical_counter,
-           --h_counter => horizontal_counter
-        );
+           hcnt => hcnt,
+           vcnt => vcnt
+         );
         
-        
-    
-    --Write a CSA to assign '1' to signals vgaRedT, vgaGreenT, vgaBlueT otherwise 0 .  
-    --VGA_R <= "1111" when vgaRedT = '1' else "0000";
-    --VGA_G <= "1111" when vgaGreenT = '1' else "0000";
-    --VGA_B <= "1111" when vgaBlueT = '1' else "0000";
        
      -----------------------------------------------------------------------------------      
      -------------------------------------- BUTTONS ------------------------------------
@@ -207,11 +197,11 @@ begin
             hcnt <= (others => '0');
             vcnt <= (others => '0');
          elsif(rising_edge(CLK100MHZ)) then
-             if(vcnt = VMax) then
+             if(vcnt = VMax) then               -- set vertical counter to 0 when it reach the max value which is 15
                  vcnt <= (others => '0');
              else
                 if(btnUp_press_event = '1') then 
-                    if(vcnt = "00000000") then
+                    if(vcnt = "00000000") then      -- set the vertical counter to max value - 1 (because 0 is the first number) when its value is 0 and button up is pressed
                         vcnt <= VMax -1;
                     else
                         vcnt <= vcnt - 1;
@@ -223,10 +213,10 @@ begin
                     vcnt <= vcnt;
                 end if;
              end if;
-             if(hcnt = HMax) then
+             if(hcnt = HMax) then       -- set horizontal counter to 0 when it reaches its max which is 20
                  hcnt <= (others => '0');
              else
-                if (btnLeft_press_event = '1') then
+                if (btnLeft_press_event = '1') then -- if button left is pressed and the horizontal counter reach to 0 then set horizontal counter to its max value -1 (because 0 is the first value)
                     if(hcnt = "00000000") then
                         hcnt <= HMax - 1;
                     else

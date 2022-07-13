@@ -2,6 +2,7 @@
 -- Thuong Nguyen 
 -- VGA Controller
 -- This file is the VGA controller for VGA display
+-- the veritcal counter and horizontal counter is used as output to use in the top component
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -19,10 +20,8 @@ entity vga is
            vgaRed: out STD_LOGIC_VECTOR(3 downto 0);
            vgaGreen: out STD_LOGIC_VECTOR(3 downto 0);
            vgaBlue: out STD_LOGIC_VECTOR(3 downto 0);
-            --h_counter: out unsigned (9 downto 0);
-            --v_counter: out unsigned (9 downto 0)
-             h_cnt: out UNSIGNED(7 downto 0) ; -- 8bits counter horizontal position of the red square(match the horizontal_counter (9 downto 5)) 
-             v_cnt: out UNSIGNED(7 downto 0) -- 8 bits counter vertical position of the red square match the vertical_counter (9 downto 5)) 
+           hcnt: out UNSIGNED(7 downto 0) ; -- 8bits counter horizontal position of the red square(match the horizontal_counter (9 downto 5)) 
+           vcnt: out UNSIGNED(7 downto 0) -- 8 bits counter vertical position of the red square match the vertical_counter (9 downto 5)) 
                                            
            );                
 end vga;
@@ -47,8 +46,8 @@ architecture Behavioral of vga is
     signal horizontal_counter: unsigned (9 downto 0);
     signal vertical_counter: unsigned (9 downto 0);
     
-    signal hcnt: unsigned(7 downto 0) ; -- 8bits counter horizontal position of the red square(match the horizontal_counter (9 downto 5)) 
-    signal vcnt: unsigned(7 downto 0); -- 8 bits counter vertical position of the red square match the vertical_counter (9 downto 5)) 
+    signal h_cnt: unsigned(7 downto 0) ; -- 8bits counter horizontal position of the red square(match the horizontal_counter (9 downto 5)) 
+    signal v_cnt: unsigned(7 downto 0); -- 8 bits counter vertical position of the red square match the vertical_counter (9 downto 5)) 
         
     signal vgaRedT: std_logic;
     signal vgaGreenT: std_logic;
@@ -107,9 +106,9 @@ begin
         -- otherwise is the blue square
         -- Green and blue squares are static making a 15 rows x 20 columns checkerboard
         -- The red square location is the bits beyond the 5th bit for the vertical and horizontal counter (hcount(9 downto 5) or vcount(9 downto 5))
-        checkerboard: process (horizontal_counter,vertical_counter, vcnt, hcnt)
+        checkerboard: process (horizontal_counter,vertical_counter, v_cnt, h_cnt)
         begin
-            if(horizontal_counter(9 downto 5) = hcnt and vertical_counter(9 downto 5) = vcnt )then
+            if(horizontal_counter(9 downto 5) = h_cnt and vertical_counter(9 downto 5) = v_cnt )then
                 vgaGreenT <= '0';  
                 vgaBlueT <= '0';
                 vgaRedT <= '1';
@@ -130,12 +129,10 @@ begin
     vgaGreen <= "1111" when vgaGreenT = '1' else "0000";
     vgaBlue <= "1111" when vgaBlueT = '1' else "0000";
     
-    -- Assign vertical_counter to v_counter to use at the other component
-    -- Assign horizontal_counter to h_counter to use at the other component
-    --v_counter <= vertical_counter;
-    --h_counter <= horizontal_counter;
+    -- Assign vertical_counter to vcounter to use at the other component
+    -- Assign horizontal_counter to hcounter to use at the other component
     
-    h_cnt <= hcnt;
-    v_cnt <= vcnt;
+    hcnt <= h_cnt;
+    vcnt <= v_cnt;
 
 end Behavioral;

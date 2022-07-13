@@ -1,9 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
-
--- 
+-- Thuong Nguyen 
+-- VGA test bench to test the VGA
 ----------------------------------------------------------------------------------
 
 
@@ -31,6 +28,8 @@ architecture Behavioral of vga_tb is
     signal vgaB: std_logic_vector (3 downto 0);
     signal hsync: std_logic;
     signal vsync: std_logic;
+    signal hcnt: unsigned(7 downto 0);
+    signal vcnt: unsigned(7 downto 0);
 begin
     vga_controller_cut: entity work.vga port map (             
            clk100MHz => clock,             
@@ -39,7 +38,9 @@ begin
            VSync => vsync,
            vgaRed => vgaR,
            vgaGreen => vgaG,
-           vgaBlue => vgaB
+           vgaBlue => vgaB,
+           hcnt => hcnt,
+           vcnt => vcnt
         );
 process
     begin
